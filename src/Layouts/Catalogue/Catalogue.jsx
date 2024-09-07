@@ -115,14 +115,14 @@ function Catalogue() {
                             return (
                                 <div key={index} className="grid-element hover:shadow-md">
                                     <div className='flex-flex-col w-full m-4 sm:py-4'>
-                                        <div className='sm:h-[50vh] h-[20vh] w-full overflow-hidden'>
-                                            <Link className='h-full block' to={`${path}/${tShirt.id}`}>
+                                        <div className='sm:h-[50vh] h-[20vh] w-[40vw] sm:w-full overflow-hidden'>
+                                            <Link className=' block' to={`${path}/${tShirt.id}`}>
                                                 <img className='h-full w-full object-cover' src={tShirt.src} alt={tShirt.alt} />
                                             </Link>
                                         </div>
-                                        <div>
+                                        <div className='overflow-hidden w-[40vw] sm:w-full'>
                                             <p className='text-lg font-normal'>{tShirt.brand}</p>
-                                            <p className='overflow-hidden text-ellipsis whitespace-nowrap'>{tShirt.name}</p>
+                                            <p className='overflow-hidden text-nowrap text-ellipsis'>{tShirt.name}</p>
                                             <p className='sm:text-xl font-semibold'>$ {tShirt.price}</p>
                                         </div>
                                     </div>
