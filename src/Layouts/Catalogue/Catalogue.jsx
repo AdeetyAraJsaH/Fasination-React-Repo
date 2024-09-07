@@ -48,7 +48,7 @@ function Catalogue() {
     return (
         <>{products?.length === 0 ? <div className='loader-container'><div className='loader'></div></div> :
             <div>
-                <div className='filter-container top-[71px] md:top-[105px] flex bg-white py-2 sm:text-sm text-[11px] '>
+                <div className='filter-container top-[51px] md:top-[105px] flex bg-white py-2 sm:text-sm text-[11px] '>
                     <button className={`mx-2 px-2 sm:py-1 py-[1px] sm:border-2 border-[1px] border-black text-black hover:bg-black hover:text-white hover:scale-95 transition-all tracking-wide ${showFilter ? 'text-white bg-black' : ''}`} onClick={() => { setShowFilter((prev) => !prev) }}>Filter<AiOutlineArrowUp className={`m-1 inline fliped transition-all 200ms ${showFilter ? ' rotation-3d' : '-rotation-3d'}`} /></button>
                     <div ref={sortRef} className='relative '>
                         <button className={`mx-2 px-2 sm:py-1 py-[1px] sm:border-2 border-[1px] border-black text-black hover:bg-black hover:text-white hover:scale-95 transition-all tracking-wide ${showSort ? 'text-white bg-black' : ''}`} onClick={() => { setShowSort(prev => !prev) }}>Sort By<AiOutlineArrowUp className={`m-1 fliped inline transition-all 200ms ${showSort ? ' rotation-3d' : '-rotation-3d'}`} /></button>
