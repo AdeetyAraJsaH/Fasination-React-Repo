@@ -22,7 +22,7 @@ function Cart() {
     return (
         <div className='h-fit w-full'>
             <div className='h-fit w-full my-6 flex justify-center'>
-                <div className='flex h-fit w-[90%]'>
+                <div className='flex h-fit w-[90%] sm:flex-row flex-col'>
                     <div className='basis-3/5 p-4 px-6'>
                         <h1 className='text-2xl font-semibold mb-2'>Bag</h1>
                         {
