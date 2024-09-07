@@ -1,0 +1,61 @@
+.nav-menu:hover .nav-line {
+    width: 100%;
+    animation: showline 200ms linear;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #eee;
+    z-index: 9999;
+    transition: all 200ms ease;
+}
+
+.scroll-down {
+    header {
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+.scroll-up {
+    header {
+        color: black;
+        /* filter: drop-shadow(0 -10px 10px rgb(170, 170, 170)); */
+    }
+}
+
+@keyframes showline {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.hideline-animation {
+    animation: hideline 200ms linear;
+}
+
+
+@keyframes hideline {
+    from {
+        left: 0%;
+        width: 100%;
+    }
+
+    to {
+        left: 100%;
+        width: 0%;
+    }
+}
+
+/* input[type="search"]::-webkit-search-cancel-button{
+width: fit-content;
+height: fit-content;
+background-color: black;
+fill:none
+} */

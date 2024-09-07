@@ -1,0 +1,90 @@
+.custom-grid {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 10px;
+    margin: 2%;
+    border: none;
+}
+
+.grid-element {
+    /* height: 50vh; */
+    height: fit-content;
+    text-align: center;
+}
+
+.filter-element {
+    transition: top 0.3s ease-in-out, width 0.4s ease;
+}
+
+.filter-container {
+    position: sticky;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: top 200ms ease;
+
+}
+
+.scroll-down {
+    .filter-container {
+        top: 0px;
+    }
+
+    .filter-element {
+        top: 50px
+    }
+}
+
+.scroll-up {
+    .filter-container {
+        /* filter: drop-shadow(0 -5px 5px rgb(170, 170, 170)); */
+        color: black;
+    }
+}
+
+
+.fliped {
+    rotate: 180deg;
+}
+
+.rotation-3d {
+    perspective: 400;
+    transform: rotateX(180deg);
+    transition: transform 200ms linear;
+}
+
+.-rotation-3d {
+    perspective: 400;
+    transform: rotateX(0deg);
+    transition: transform 200ms linear;
+}
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 110px);
+    /* Subtract header height */
+    background-color: #f9f9f9;
+}
+
+.loader {
+    /* Your loader styles (e.g., spinner, animation, etc.) */
+    /* Example: */
+    border: 4px solid #ccc;
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
