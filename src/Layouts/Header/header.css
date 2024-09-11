@@ -1,3 +1,7 @@
+li a {
+    display: inline-block;
+}
+
 .nav-menu:hover .nav-line {
     width: 100%;
     animation: showline 200ms linear;
@@ -9,7 +13,7 @@ header {
     left: 0;
     width: 100%;
     background: #eee;
-    z-index: 9999;
+    z-index: 2;
     transition: all 200ms ease;
 }
 
@@ -59,3 +63,32 @@ height: fit-content;
 background-color: black;
 fill:none
 } */
+
+.side-drawer {
+    transition: all 400ms ease;
+}
+
+#side-drawer:checked~.side-drawer {
+    left: 0;
+    z-index: 1000;
+}
+
+#side-drawer:checked~.side-drawer-overlay {
+    position: fixed;
+    top: 0;
+    display: block;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+    z-index: 999;
+}
+
+.back-menu-btn span {
+    width: 0;
+    transition: width 300ms ease;
+}
+
+.back-menu-btn:hover span {
+    width: fit-content;
+}
+
+/* .category-list~ */

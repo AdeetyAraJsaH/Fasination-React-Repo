@@ -28,7 +28,7 @@ function Catalogue() {
                 return;
             }
 
-            if (currentScroll > 120 && currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+            if (currentScroll > 100 && currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
                 body.classList.remove("scroll-up");
                 body.classList.add("scroll-down");
             } else if (currentScroll < lastScroll && body.classList.contains("scroll-down")) {
@@ -48,7 +48,7 @@ function Catalogue() {
     return (
         <>{products?.length === 0 ? <div className='loader-container'><div className='loader'></div></div> :
             <div>
-                <div className='filter-container top-[51px] md:top-[105px] flex bg-white py-2 sm:text-sm text-[11px] '>
+                <div className='filter-container top-[70px] md:top-[105px] flex bg-white py-2 sm:text-sm text-[11px] '>
                     <button className={`mx-2 px-2 sm:py-1 py-[1px] sm:border-2 border-[1px] border-black text-black hover:bg-black hover:text-white hover:scale-95 transition-all tracking-wide ${showFilter ? 'text-white bg-black' : ''}`} onClick={() => { setShowFilter((prev) => !prev) }}>Filter<AiOutlineArrowUp className={`m-1 inline fliped transition-all 200ms ${showFilter ? ' rotation-3d' : '-rotation-3d'}`} /></button>
                     <div ref={sortRef} className='relative '>
                         <button className={`mx-2 px-2 sm:py-1 py-[1px] sm:border-2 border-[1px] border-black text-black hover:bg-black hover:text-white hover:scale-95 transition-all tracking-wide ${showSort ? 'text-white bg-black' : ''}`} onClick={() => { setShowSort(prev => !prev) }}>Sort By<AiOutlineArrowUp className={`m-1 fliped inline transition-all 200ms ${showSort ? ' rotation-3d' : '-rotation-3d'}`} /></button>
@@ -114,8 +114,8 @@ function Catalogue() {
                         {tShirts.map((tShirt, index) => {
                             return (
                                 <div key={index} className="grid-element hover:shadow-md">
-                                    <div className='flex-flex-col w-full m-4 sm:py-4'>
-                                        <div className='sm:h-[50vh] h-[20vh] w-[40vw] sm:w-full overflow-hidden'>
+                                    <div className='flex flex-col w-full m-4 sm:py-4'>
+                                        <div className='sm:h-[50vh] md:h-[37vh] lg:h-[50vh] h-[20vh] w-[40vw] sm:w-full overflow-hidden'>
                                             <Link className=' block' to={`${path}/${tShirt.id}`}>
                                                 <img className='h-full w-full object-cover' src={tShirt.src} alt={tShirt.alt} />
                                             </Link>
@@ -123,7 +123,7 @@ function Catalogue() {
                                         <div className='overflow-hidden w-[40vw] sm:w-full'>
                                             <p className='text-lg font-normal'>{tShirt.brand}</p>
                                             <p className='overflow-hidden text-nowrap text-ellipsis'>{tShirt.name}</p>
-                                            <p className='sm:text-xl font-semibold'>$ {tShirt.price}</p>
+                                            <p className='sm:text-xl font-semibold'>${tShirt.price}</p>
                                         </div>
                                     </div>
                                 </div>

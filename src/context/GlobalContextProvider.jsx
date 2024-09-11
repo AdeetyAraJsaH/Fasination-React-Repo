@@ -1,5 +1,6 @@
 import React from 'react'
 import { tShirts } from '../assets/data/products.json'
+import { categories } from '../assets/data/category.json'
 import { GlobalContext } from './context'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
@@ -10,6 +11,8 @@ function GlobalContextProvider({ children }) {
     const [products, setProducts] = React.useState([]);
     const [cart, setCart] = React.useState([]);
     const [favourites, setFavourites] = React.useState([]);
+    const [prevMenu, setPrevMenu] = React.useState([]);
+    const [currentMenu, setCurrentMenu] = React.useState(categories);
     const { category } = useParams();
     React.useEffect(() => {
         if (query === '') setQuery(category);
@@ -44,7 +47,7 @@ function GlobalContextProvider({ children }) {
         // console.log(JSON.stringify(products));
     }
     return (
-        <GlobalContext.Provider value={{ login, setLogin, query, setQuery, products, setProducts, cart, setCart, favourites, setFavourites, fetchProducts }}>
+        <GlobalContext.Provider value={{ login, setLogin, query, setQuery, products, setProducts, cart, setCart, favourites, setFavourites, fetchProducts, prevMenu, setPrevMenu, currentMenu, setCurrentMenu }}>
             {children}
         </GlobalContext.Provider>
     )

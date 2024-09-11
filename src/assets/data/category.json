@@ -1,0 +1,282 @@
+{
+    "categories": {
+        "category_name": "All",
+        "sub_categories": [
+            {
+                "category_name": "men",
+                "parent": "All",
+                "sub_categories": [
+                    {
+                        "category_name": "western wears",
+                        "parent": "men",
+                        "sub_categories": [
+                            "T-Shirts",
+                            "Shirts",
+                            "Jackets & Coats",
+                            "Jeans",
+                            "Sweat Shirts & hoodies",
+                            "Trousers & Pants",
+                            "Track Pants",
+                            "Shorts & 3/4ths"
+                        ]
+                    },
+                    {
+                        "category_name": "footwears",
+                        "parent": "men",
+                        "sub_categories": [
+                            "Casual Shoes",
+                            "Formal Shoes",
+                            "Sandals",
+                            "Flip-flops & Sleepers",
+                            "Sports Shoes",
+                            "Sneakers"
+                        ]
+                    },
+                    {
+                        "category_name": "accessories",
+                        "parent": "men",
+                        "sub_categories": [
+                            "Bagpacks",
+                            "Belts",
+                            "Bags & wallets",
+                            "Caps & Hats",
+                            "Luggage & Trolleys",
+                            "Socks",
+                            "Silver Jwellries",
+                            "Sunglasses & Frames",
+                            "Watches"
+                        ]
+                    },
+                    {
+                        "category_name": "innerwears",
+                        "parent": "men",
+                        "sub_categories": [
+                            "Vests",
+                            "Briefs",
+                            "Trunks & Boxers"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "women",
+                "sub_categories": [
+                    {
+                        "category_name": "Western Wears",
+                        "sub_categories": [
+                            "Tops & T-Shirts",
+                            "Jeans & Jeggings",
+                            "Jackets & Coats",
+                            "Dresses",
+                            "Sweat Shirts & Hoodies",
+                            "Trousers & Pants",
+                            "Skirts & Shorts",
+                            "Jumpsuits & Playsuits",
+                            "Sweat Shirts & Hoodies"
+                        ]
+                    },
+                    {
+                        "category_name": "Accessories",
+                        "sub_categories": [
+                            "Bagpacks",
+                            "Belts",
+                            "Bags & wallets",
+                            "Caps & Hats",
+                            "Luggage & Trolleys",
+                            "Socks & Stokings",
+                            "Stoles & Scarves",
+                            "Sunglasses & Frames",
+                            "Watches"
+                        ]
+                    },
+                    {
+                        "category_name": "Footwears",
+                        "sub_categories": [
+                            "Casual Shoes",
+                            "Formal Shoes & Heeled Shoes",
+                            "Sandals & Heeled Sandals",
+                            "Flip-flops & Sleepers",
+                            "Sports Shoes",
+                            "Sneakers",
+                            "Boots"
+                        ]
+                    },
+                    {
+                        "category_name": "Innerwears",
+                        "sub_categories": [
+                            "Bras",
+                            "Panties",
+                            "Maternity Wears",
+                            "Thermal Wears",
+                            "Camisoles & Slips"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "home & kitchen",
+                "sub_categories": [
+                    {
+                        "category_name": "BED LINEN",
+                        "sub_categories": [
+                            "BedsheetsBedding",
+                            "SetsBlankets",
+                            "Dohars & QuiltsComfortersBed",
+                            "CoversMattress",
+                            "ProtectorsQuilt & Duvet Covers"
+                        ]
+                    },
+                    {
+                        "category_name": "CUSHIONS & PILLOWS",
+                        "sub_categories": [
+                            "Cushions",
+                            "Pillows",
+                            "Bed Wedges & Neck Pillows",
+                            "Bolsters",
+                            "Cushion Covers",
+                            "Pillow Covers"
+                        ]
+                    },
+                    {
+                        "category_name": "KITCHENNEW",
+                        "sub_categories": [
+                            "Cookware & Cutlery",
+                            "Bakeware",
+                            "Kitchen Tools",
+                            "Kitchen Aprons",
+                            "Gloves & Towel",
+                            "Kitchen Organisers"
+                        ]
+                    },
+                    {
+                        "category_name": "HOME DECOR",
+                        "sub_categories": [
+                            "Wall Decor",
+                            "Wall Shelves",
+                            "ClocksPhoto",
+                            "FramesMirrors",
+                            "Lamp",
+                            "Diyas & Candle",
+                            "Home Fragnance",
+                            "Plants & Flowers"
+                        ]
+                    },
+                    {
+                        "category_name": "DINING",
+                        "sub_categories": [
+                            "Serveware & Drinkware",
+                            "Table Linen Sets",
+                            "Table Covers & Runners",
+                            "Table Napkins",
+                            "Placemats & Coasters"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "kids",
+                "sub_categories": [
+                    {
+                        "category_name": "BOYS",
+                        "sub_categories": [
+                            {
+                                "category_name": "Innerwear & SLEEPWEAR",
+                                "sub_categories": [
+                                    "TrousersJoggers",
+                                    "Track",
+                                    "vests",
+                                    "drawers"
+                                ]
+                            },
+                            {
+                                "category_name": "Outerwear",
+                                "sub_categories": [
+                                    "Denims",
+                                    "T-Shirts",
+                                    "Pants",
+                                    "Shirts",
+                                    "Shorts",
+                                    "3/4thsT-shirts"
+                                ]
+                            },
+                            {
+                                "category_name": "Footwears",
+                                "sub_categories": [
+                                    "Flip-flops & Sleepers",
+                                    "Sports Shoes",
+                                    "Sneakers"
+                                ]
+                            },
+                            {
+                                "category_name": "Toys & accessories",
+                                "sub_categories": []
+                            }
+                        ]
+                    },
+                    {
+                        "category_name": "Girls",
+                        "sub_categories": [
+                            {
+                                "category_name": "Innerwear & SLEEPWEAR",
+                                "sub_categories": [
+                                    "TrousersJoggers",
+                                    "Track",
+                                    "vests",
+                                    "drawers"
+                                ]
+                            },
+                            {
+                                "category_name": "outerwear",
+                                "sub_categories": [
+                                    "frocks",
+                                    "leggings",
+                                    "Jeans & Jeggings",
+                                    "Tops & T-Shirts"
+                                ]
+                            },
+                            {
+                                "category_name": "Footwears",
+                                "sub_categories": [
+                                    "Flip-flops & Sleepers",
+                                    "Sports Shoes",
+                                    "Sneakers"
+                                ]
+                            },
+                            {
+                                "category_name": "Toys & accessories",
+                                "sub_categories": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "beauty",
+                "sub_categories": [
+                    {
+                        "category_name": "hair",
+                        "sub_categories": [
+                            "Shampoo",
+                            "Conditioner",
+                            "Hair Oil",
+                            "Hair Color",
+                            "Hair Styling"
+                        ]
+                    },
+                    {
+                        "category_name": "makeup",
+                        "sub_categories": [
+                            "Lipstick",
+                            "LipGloss",
+                            "Mascara",
+                            "Eyeliner",
+                            "Foundation",
+                            "Concealer",
+                            "HairCare"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
