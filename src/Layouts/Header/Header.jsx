@@ -735,8 +735,8 @@ function Header() {
                 </div>
             </header>
             <input id="side-drawer" type="checkbox" defaultValue={false} className="hidden" />
-            <label htmlFor="side-drawer" className='md:hidden hidden side-drawer-overlay fixed h-full w-full bg-black/40 opacity-0 z-90'></label>
-            <div className="md:hidden side-drawer fixed top-0 left-[-100%] h-full w-[60%] bg-base-200 pt-4 z-100">
+            <label htmlFor="side-drawer" className='md:hidden hidden side-drawer-overlay fixed h-[100dvh] w-full bg-black/40 opacity-0 z-90'></label>
+            <div className="md:hidden side-drawer fixed top-0 left-[-100%] h-[100dvh] w-[60%] bg-base-200 pt-4 z-100">
                 <div className='flex justify-between'>
                     <label htmlFor="side-drawer" aria-label="close sidebar" className="close-drawer-btn w-10 h-10 rounded-full hover:bg-black/20 inline-flex mx-4 transition-all 100ms ease" >
                         <FaTimes className='m-auto' color='black' size={20} />
