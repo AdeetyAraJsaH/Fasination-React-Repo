@@ -778,10 +778,12 @@ function Header() {
                                     }}>✕</button>
                             </div>
                             <div className="m-4">
-                                <div className='w-[80%] m-auto relative flex flex-col justify-center items-center'>
+                                <div className='w-[80%] m-auto flex flex-col justify-center items-center'>
                                     <p className='w-full text-xl font-medium m-4'>Enter your email to join us or sign in.</p>
-                                    <input id='email-id' type="email" className=' w-full m-2 p-2' placeholder=' ' required />
-                                    <label htmlFor="email-id" className='inline-block email-label absolute text-lg text-black/70 top-[74px] left-[20px] cursor-text'>Email</label>
+                                    <div className='relative w-full'>
+                                        <input id='email-id' type="email" className=' w-full p-2' placeholder=' ' required />
+                                        <label htmlFor="email-id" className='inline-block email-label absolute text-sm sm:text-lg text-black/70 font-medium top-[8px] left-[20px] cursor-text'>Email*</label>
+                                    </div>
                                     <p className='text-black/70'>
                                         By continuing, I agree to FasiNation <a href="#" className='underline hover:cursor-pointer hover:text-black transition-colors 200ms ease'>Privacy Policy</a> and <a href="#" className='underline hover:cursor-pointer hover:text-black transition-colors 200ms ease'>Terms of Use.</a>
                                     </p>
