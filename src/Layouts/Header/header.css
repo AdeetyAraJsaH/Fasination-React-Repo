@@ -91,4 +91,40 @@ fill:none
     width: fit-content;
 }
 
+#email-id {
+    outline: 2px solid black;
+    border-radius: 2px;
+    font-size: medium;
+}
+
+#email-id:not(:placeholder-shown):valid {
+    outline-color: rgba(23, 179, 23, 0.89);
+}
+
+#email-id:not(:placeholder-shown):invalid {
+    outline-color: rgba(225, 22, 22, 0.89);
+}
+
+#email-id:focus:invalid {
+    outline-color: rgba(222, 147, 27, 0.89);
+}
+
+.email-label {
+    width: fit-content;
+    margin: auto;
+    padding: 0px;
+    background: #fff;
+    text-wrap: nowrap;
+    transition: width 300ms ease, top 300ms ease, all 300ms ease;
+}
+
+#email-id:focus+.email-label,
+#email-id:not(:placeholder-shown):invalid+.email-label,
+#email-id:not(:placeholder-shown):valid+.email-label {
+    width: fit-content;
+    padding: 3px;
+    top: 48px;
+    /* transform: scale(0.8); */
+}
+
 /* .category-list~ */

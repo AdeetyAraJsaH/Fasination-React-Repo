@@ -10,6 +10,7 @@ import { FaTimes } from 'react-icons/fa'
 function Header() {
     const { login, cart, favourites, query, setQuery, fetchProducts, currentMenu, setCurrentMenu, prevMenu, setPrevMenu } = React.useContext(GlobalContext);
     let lastScroll = 0;
+
     React.useEffect(() => {
         console.log(currentMenu);
         console.log(prevMenu);
@@ -106,11 +107,9 @@ function Header() {
                                     <button className="btn btn-ghost btn-circle px-0"><div className='relative'><AiOutlineShopping size={25} />{cart.length !== 0 ? <span className='absolute  top-[50%] left-[50%] bg-black text-white w-[22px] h-[22px] p-[3px] text-[14px] rounded-full'>{cart.length}</span> : ''}</div></button>
                                 </Link>
                             </div>
-                            <div className=" divider divider-horizontal mx-2"></div>
                             <div className='hidden md:block mr-2'>
                                 <a href="#" className='hover:text-gray-500'>SignIn</a>
                             </div>
-                            <button className='btn btn-ghost btn-square md:hidden px-0'><AiOutlineLogin size={25} /></button>
                         </div>
                     </div>
                     <div className="w-full hidden md:block mt-2">
@@ -736,12 +735,17 @@ function Header() {
             </header>
             <input id="side-drawer" type="checkbox" defaultValue={false} className="hidden" />
             <label htmlFor="side-drawer" className='md:hidden hidden side-drawer-overlay fixed h-[100dvh] w-full bg-black/40 opacity-0 z-90'></label>
-            <div className="md:hidden side-drawer fixed top-0 left-[-100%] h-[100dvh] w-[60%] bg-base-200 pt-4 z-100">
+            <div className="overflow-auto md:hidden side-drawer fixed top-0 left-[-100%] h-[100dvh] w-[60%] bg-base-200 pt-4 z-100">
                 <div className='flex justify-between'>
-                    <label htmlFor="side-drawer" aria-label="close sidebar" className="close-drawer-btn w-10 h-10 rounded-full hover:bg-black/20 inline-flex mx-4 transition-all 100ms ease" >
-                        <FaTimes className='m-auto' color='black' size={20} />
+                    <label htmlFor="side-drawer" aria-label="close sidebar" className="close-drawer-btn w-10 h-10 rounded-full hover:bg-black/40 inline-flex mx-4 transition-all 100ms ease" onClick={() => {
+                        if (prevMenu.length !== 0) {
+                            setCurrentMenu(prevMenu[prevMenu.length - 1]);
+                            setPrevMenu([]);
+                        }
+                    }}>
+                        <FaTimes size={20} />
                     </label>
-                    <button className={` back-menu-btn hover:w-fit overflow-hidden  h-10 rounded-full  inline-flex gap-2 mx-4 transition-all 100ms ease`}
+                    {prevMenu.length !== 0 ? < button className={` back-menu-btn w-fit overflow-hidden  h-10 rounded-full  inline-flex gap-2 mx-4 transition-all 100ms ease`}
                         onClick={() => {
                             if (prevMenu.length !== 0) {
                                 setCurrentMenu(prevMenu[0]);
@@ -752,12 +756,43 @@ function Header() {
                             }
                         }
                         }>
-                        <AiOutlineArrowLeft size={20} className={`my-auto w-full hover:cursor-pointer`} />
-                        <p className='uppercase text-nowrap overflow-hidden pt-2 transition-all 200ms ease'>{currentMenu?.parent}</p>
-                    </button >
+                        <AiOutlineArrowLeft size={20} className={`my-auto hover:cursor-pointer`} />
+                        <p className='text-nowrap overflow-hidden pt-2 transition-all 200ms ease'>Back</p>
+                    </button > : ""}
                 </div>
                 <Sidemenu />
-            </div>
+                <div>
+                    <button className='w-[90%] p-2 border-black border-2 m-2 my-4 ml-3 transition-colors 200ms ease hover:bg-black hover:text-white active:bg-black active:text-white' onClick={() => { document.getElementById('signin-form').showModal() }}>SignIn</button>
+
+                    {/* onCancel doesn't work on chromium browser if you press 'esc' twice preventDefault won't work */}
+                    <dialog id='signin-form' className='w-[80%] top-0' onCancel={event => event.preventDefault()}>
+                        <div className="rounded-lg">
+                            <div className='flex justify-between m-4'>
+                                <a href="/"><img src={Logo1} alt="Logo" width={150} height={20} className=' mix-blend-multiply' /></a>
+                                <button className="btn btn-sm btn-circle btn-ghost pb-[2px]"
+                                    onClick={() => {
+                                        document.getElementById('signin-form').addEventListener('cancel', (event) => {
+                                            event.preventDefault();
+                                        })
+                                        document.getElementById('signin-form').close()
+                                    }}>✕</button>
+                            </div>
+                            <div className="m-4">
+                                <div className='w-[80%] m-auto relative flex flex-col justify-center items-center'>
+                                    <p className='w-full text-xl font-medium m-4'>Enter your email to join us or sign in.</p>
+                                    <input id='email-id' type="email" className=' w-full m-2 p-2' placeholder=' ' required />
+                                    <label htmlFor="email-id" className='inline-block email-label absolute text-lg text-black/70 top-[74px] left-[20px] cursor-text'>Email</label>
+                                    <p className='text-black/70'>
+                                        By continuing, I agree to FasiNation <a href="#" className='underline hover:cursor-pointer hover:text-black transition-colors 200ms ease'>Privacy Policy</a> and <a href="#" className='underline hover:cursor-pointer hover:text-black transition-colors 200ms ease'>Terms of Use.</a>
+                                    </p>
+                                    <button className='ml-auto p-2 bg-black text-white rounded-full px-4'>continue</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </dialog>
+                </div>
+            </div >
         </>
     )
 }
@@ -772,25 +807,33 @@ function Sidemenu() {
             {
                 !nextMenu ?
                     < div className={`mt-4 ${prevMenu === null ? "" : "relative"}`} >
-                        <span className='uppercase mx-6 text-2xl font-semibold'>{currentMenu?.category_name}</span>
-                        <ul className={`mt-4 ${prevMenu === null ? "" : "category-list"}`}>
+                        <span className='uppercase mx-6 text-sm sm:text-2xl font-semibold'>{currentMenu?.category_name}</span>
+                        <ul className={`mt-4 space-y-8${prevMenu === null ? "" : "category-list"}`}>
                             {
                                 currentMenu?.sub_categories.map((category, index) => {
                                     return (
-                                        <li key={index} className='uppercase hover:cursor-pointer p-6 space-y-8 hover:bg-black hover:text-white active:bg-black active:text-white transition-all 200ms ease ' onClick={() => {
-                                            setPrevMenu(prev => [currentMenu, ...prev])
-                                            setNextMenu(category);
-                                            setCurrentMenu(category);
+                                        <li key={index} className='text-sm sm:text-2xl uppercase hover:cursor-pointer hover:bg-black hover:text-white active:bg-black active:text-white transition-all 200ms ease ' onClick={() => {
+                                            if (category?.sub_categories) {
+                                                setPrevMenu(prev => [currentMenu, ...prev]);
+                                                setNextMenu(category);
+                                                setCurrentMenu(category);
+                                            }
                                         }}>
                                             {category?.category_name ?
-                                                <div className='flex justify-between'>
+                                                <div className='flex justify-between p-6'>
                                                     <span>{category?.category_name}</span>
                                                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none"><path stroke="currentColor" strokeWidth="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path></svg>
                                                 </div>
                                                 :
-                                                <Link to={`/{category}`} onClick={() => setQuery('men\'s tshirt')}>
-                                                    {category}
-                                                </Link>
+                                                <label htmlFor="side-drawer" className='w-full inline-block hover:cursor-pointer'>
+                                                    <Link className='w-full p-6 text-ellipsis text-nowrap overflow-hidden' to={`/{category}`} onClick={() => {
+                                                        setQuery('men\'s tshirt');
+                                                        setCurrentMenu(prevMenu[prevMenu.length - 1]);
+                                                        setPrevMenu([]);
+                                                    }}>
+                                                        {category}
+                                                    </Link>
+                                                </label>
                                             }
                                         </li>
                                     )
@@ -799,7 +842,7 @@ function Sidemenu() {
                         </ul>
                     </div >
                     :
-                    <Sidemenu currentMenu={nextMenu} setCurrentMenu={setCurrentMenu} setPrevMenu={setPrevMenu} />
+                    <Sidemenu />
             }
         </>
     )

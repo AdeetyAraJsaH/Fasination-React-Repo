@@ -26,7 +26,7 @@ function Footer() {
             <div style={{ color: 'grey' }} className='footer-menu flex md:flex-row flex-col text-sm py-2'>
                 {isMobile ? <div className="join join-vertical w-full">
                     <div className="collapse collapse-arrow join-item border-b">
-                        <input type="checkbox" name="my-accordion-4" defaultChecked />
+                        <input type="checkbox" name="my-accordion-4" />
                         <div className="collapse-title text-md font-medium">Resources</div>
                         <div className="collapse-content">
                             <ul className='flex flex-col gap-1'>
