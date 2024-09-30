@@ -76,7 +76,6 @@ fill:none
 #side-drawer:checked~.side-drawer-overlay {
     position: fixed;
     top: 0;
-    display: block;
     opacity: 0.5;
     transition: opacity 0.2s ease;
     z-index: 999;
@@ -93,7 +92,7 @@ fill:none
 
 #email-id {
     outline: 2px solid black;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     font-size: medium;
 }
 
@@ -109,18 +108,69 @@ fill:none
     outline-color: rgba(222, 147, 27, 0.89);
 }
 
+.info::before {
+    display: block;
+    height: 18px;
+    width: fit-content;
+    content: 'required*';
+    color: rgba(225, 22, 22, 0.89);
+    font-size: 14px;
+}
+
+.links {
+    color: black;
+    position: relative;
+    display: inline-block;
+    padding: 4px;
+    outline: none;
+    isolation: isolate;
+    background: 0;
+    transition: color 330ms ease;
+}
+
+.links::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background: black;
+    z-index: -1;
+    transform-origin: bottom;
+    transform: scale(1, 0);
+    transition: transform 330ms ease;
+}
+
+.links:hover::after,
+.links:focus::after {
+    transform: scale(1, 1);
+}
+
+.links:hover,
+.links:focus {
+    color: white;
+}
+
+#email-id:not(:placeholder-shown):not(:focus)~.info::before {
+    content: 'Invalid e-mail !';
+}
+
+#email-id:not(:placeholder-shown):valid~.info::before {
+    content: '';
+}
+
 .email-label {
     width: fit-content;
     margin: auto;
     padding: 0px;
     background: #fff;
     text-wrap: nowrap;
+    transform: scale(1.2);
     transition: width 300ms ease, top 300ms ease, all 300ms ease;
 }
 
 #email-id:focus+.email-label,
 #email-id:not(:placeholder-shown):invalid+.email-label,
 #email-id:not(:placeholder-shown):valid+.email-label {
+    transform: scale(1);
     width: fit-content;
     padding: 3px;
     top: -16px;

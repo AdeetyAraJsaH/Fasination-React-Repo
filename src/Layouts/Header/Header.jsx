@@ -733,11 +733,12 @@ function Header() {
                     </div>
                 </div>
             </header>
+            {/* side drawer menu for smaller screens */}
             <input id="side-drawer" type="checkbox" defaultValue={false} className="hidden" />
-            <label htmlFor="side-drawer" className='md:hidden hidden side-drawer-overlay fixed h-[100dvh] w-full bg-black/40 opacity-0 z-90'></label>
+            <label htmlFor="side-drawer" className='md:hidden side-drawer-overlay fixed h-[100dvh] w-full bg-black/40 opacity-0 z-90'></label>
             <div className="overflow-auto md:hidden side-drawer fixed top-0 left-[-100%] h-[100dvh] w-[60%] bg-base-200 pt-4 z-100">
                 <div className='flex justify-between'>
-                    <label htmlFor="side-drawer" aria-label="close sidebar" className="close-drawer-btn w-10 h-10 rounded-full hover:bg-black/40 inline-flex mx-4 transition-all 100ms ease" onClick={() => {
+                    <label htmlFor="side-drawer" aria-label="close sidebar" className="close-drawer-btn w-10 h-10 rounded-full hover:bg-black/40 inline-flex justify-center items-center mx-4 transition-all 100ms ease" onClick={() => {
                         if (prevMenu.length !== 0) {
                             setCurrentMenu(prevMenu[prevMenu.length - 1]);
                             setPrevMenu([]);
@@ -777,20 +778,20 @@ function Header() {
                                         document.getElementById('signin-form').close()
                                     }}>✕</button>
                             </div>
-                            <div className="m-4">
-                                <div className='w-[80%] m-auto flex flex-col justify-center items-center'>
-                                    <p className='w-full text-xl font-medium m-4'>Enter your email to join us or sign in.</p>
-                                    <div className='relative w-full'>
-                                        <input id='email-id' type="email" className=' w-full p-2' placeholder=' ' required />
-                                        <label htmlFor="email-id" className='inline-block email-label absolute text-sm sm:text-lg text-black/70 font-medium top-[8px] left-[20px] cursor-text'>Email*</label>
-                                    </div>
-                                    <p className='text-black/70'>
-                                        By continuing, I agree to FasiNation <a href="#" className='underline hover:cursor-pointer hover:text-black transition-colors 200ms ease'>Privacy Policy</a> and <a href="#" className='underline hover:cursor-pointer hover:text-black transition-colors 200ms ease'>Terms of Use.</a>
-                                    </p>
-                                    <button className='ml-auto p-2 bg-black text-white rounded-full px-4'>continue</button>
+                            {/* <div className="m-4"> */}
+                            <div className='w-[80%] m-auto mb-4 flex flex-col justify-center items-center'>
+                                <p className='w-full text-xl font-medium m-4'>Enter your email to join us or sign in.</p>
+                                <div className='relative w-full'>
+                                    <input id='email-id' type="email" className=' w-full p-2' placeholder=' ' required />
+                                    <label htmlFor="email-id" className='inline-block email-label absolute text-sm text-black/70 font-medium top-[8px] left-[20px] cursor-text'>Email</label>
+                                    <span className='info'></span>
                                 </div>
-
+                                <p className='text-black/70'>
+                                    By continuing, I agree to FasiNation <a href="#" className='links text-black font-medium hover:cursor-pointer transition-colors 200ms ease'>Privacy Policy</a> and <a href="#" className='links text-black font-medium hover:cursor-pointer transition-colors 200ms ease'>Terms of Use.</a>
+                                </p>
+                                <button className='ml-auto p-2 bg-black text-white rounded-full px-4'>continue</button>
                             </div>
+                            {/* </div> */}
                         </div>
                     </dialog>
                 </div>
@@ -801,6 +802,7 @@ function Header() {
 
 export default Header
 
+// component for showing sida menus
 function Sidemenu() {
     const { prevMenu, setPrevMenu, currentMenu, setCurrentMenu } = React.useContext(GlobalContext);
     const [nextMenu, setNextMenu] = React.useState(null);
@@ -814,7 +816,7 @@ function Sidemenu() {
                             {
                                 currentMenu?.sub_categories.map((category, index) => {
                                     return (
-                                        <li key={index} className='text-sm sm:text-2xl uppercase hover:cursor-pointer hover:bg-black hover:text-white active:bg-black active:text-white transition-all 200ms ease ' onClick={() => {
+                                        <li key={index} className='text-sm sm:text-lg uppercase hover:cursor-pointer hover:bg-black hover:text-white active:bg-black active:text-white transition-all 200ms ease ' onClick={() => {
                                             if (category?.sub_categories) {
                                                 setPrevMenu(prev => [currentMenu, ...prev]);
                                                 setNextMenu(category);
