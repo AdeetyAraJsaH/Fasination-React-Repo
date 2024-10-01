@@ -7,9 +7,9 @@ import { tShirts } from '../assets/data/products.json'
 function ProductProvider({ children }) {
     const [product, setProduct] = React.useState(null);
     const { productId } = useParams();
-    React.useEffect(()=>{
+    React.useEffect(() => {
         fetchProduct()
-    },[productId])
+    }, [productId])
     const fetchProduct = async (id = productId) => {
         const options = {
             method: 'GET',
@@ -27,7 +27,9 @@ function ProductProvider({ children }) {
             .request(options)
             .then(function (response) {
                 console.log(response.data?.data);
-                setProduct(response.data?.data?.product);
+                if (response.data?.data)
+                    setProduct(response.data?.data?.product);
+                setProduct(tShirts.find(product => product.id == id));
             })
             .catch(function (error) {
                 setProduct(tShirts.find(product => product.id == id));
