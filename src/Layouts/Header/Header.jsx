@@ -736,7 +736,7 @@ function Header() {
             {/* side drawer menu for smaller screens */}
             <input id="side-drawer" type="checkbox" defaultValue={false} className="hidden" />
             <label htmlFor="side-drawer" className='md:hidden side-drawer-overlay fixed h-[100dvh] w-full bg-black/40 opacity-0'></label>
-            <div className="overflow-auto md:hidden side-drawer fixed top-0 left-[-100%] h-[100svh] w-[60%] bg-base-200 pt-4 z-100">
+            <div className="overflow-auto md:hidden side-drawer fixed top-0 left-[-100%] h-[100svh] w-[60%] bg-base-200 pt-4">
                 <div className='flex justify-between'>
                     <label htmlFor="side-drawer" aria-label="close sidebar" className="close-drawer-btn w-10 h-10 rounded-full hover:bg-black/40 inline-flex justify-center items-center mx-4 transition-all 100ms ease" onClick={() => {
                         if (prevMenu.length !== 0) {
