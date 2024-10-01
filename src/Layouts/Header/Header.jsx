@@ -811,8 +811,8 @@ function Sidemenu() {
             {
                 !nextMenu ?
                     < div className={`mt-4 ${prevMenu === null ? "" : "relative"}`} >
-                        <span className='uppercase mx-6 text-sm sm:text-2xl font-semibold'>{currentMenu?.category_name}</span>
-                        <ul className={`mt-4 space-y-8${prevMenu === null ? "" : "category-list"}`}>
+                        <h3 className='uppercase p-6 text-sm sm:text-2xl font-semibold text-white bg-black'>{currentMenu?.category_name}</h3>
+                        <ul className={`space-y-8${prevMenu === null ? "" : "category-list"}`}>
                             {
                                 currentMenu?.sub_categories.map((category, index) => {
                                     return (
