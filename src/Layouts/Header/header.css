@@ -67,7 +67,9 @@ fill:none
 .side-drawer {
     transition: all 400ms ease;
 }
-
+.side-drawer-overlay{
+    z-index: -1000;
+}
 #side-drawer:checked~.side-drawer {
     left: 0;
     z-index: 1000;
